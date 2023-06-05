@@ -13,6 +13,12 @@ WORKDIR /usr/src/app
 COPY ./requirements.txt /usr/src/app/requirements.txt
 RUN pip install -r requirements.txt
 
+ENV FLASK_ENV="development"
+ENV APP_SETTINGS="project.config.DevelopmentConfig"
+ENV POSTGRES_USER="postgres"
+ENV POSTGRES_PASSWORD="securepassword"
+ENV POSTGRES_SERVICE="postgres-postgresql"
+
 # add entrypoint.sh
 COPY ./entrypoint.sh /usr/src/app/entrypoint.sh
 RUN chmod +x /usr/src/app/entrypoint.sh
@@ -21,4 +27,4 @@ RUN chmod +x /usr/src/app/entrypoint.sh
 COPY . /usr/src/app
 
 # run server
-CMD ["/usr/src/app/entrypoint.sh"]
+CMD ["./entrypoint.sh"]

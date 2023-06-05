@@ -12,3 +12,4 @@ spec:
   - nodePort: 30163
     port: 5000
     targetPort: 5000
+

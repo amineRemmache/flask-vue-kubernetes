@@ -19,21 +19,7 @@ spec:
     spec:
       containers:
       - env:
-        - name: FLASK_ENV
-          value: development
-        - name: APP_SETTINGS
-          value: project.config.DevelopmentConfig
-        - name: POSTGRES_USER
-          valueFrom:
-            secretKeyRef:
-              key: user
-              name: postgres-credentials
-        - name: POSTGRES_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              key: password
-              name: postgres-credentials
-        image: mjhea0/flask-kubernetes:latest
+        image: xornet98/books-app:latest
         imagePullPolicy: Always
         name: flask
         resources: {}
